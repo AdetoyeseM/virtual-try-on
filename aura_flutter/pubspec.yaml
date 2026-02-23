@@ -1,0 +1,23 @@
+name: aura_mobile
+description: A premium virtual try-on mobile app powered by Aura AI.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: 
+  webview_flutter_android: 
+  webview_flutter_wkwebview: 
+  flutter_spinkit: ^5.2.1
+  google_fonts: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

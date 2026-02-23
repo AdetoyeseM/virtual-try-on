@@ -11,10 +11,14 @@
   "dependencies": {
     "@google/genai": "^0.8.0",
     "@google/generative-ai": "^0.24.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.34.2",
     "lucide-react": "^0.488.0",
     "next": "15.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-webcam": "^7.2.0",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
