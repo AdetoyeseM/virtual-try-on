@@ -3,7 +3,7 @@
 import React, { useRef, useCallback, useState } from 'react';
 import Webcam from 'react-webcam';
 import { Camera, RefreshCw, Check, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface CameraCaptureProps {
     onCapture: (image: string) => void;
