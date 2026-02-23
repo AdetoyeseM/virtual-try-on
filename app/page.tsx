@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, Upload, RefreshCw, Wand2, ArrowLeft, Download, Share2, Github, Twitter, Linkedin } from 'lucide-react';
+import { Camera, Upload, RefreshCw, Wand2, ArrowLeft, Download, Share2 } from 'lucide-react';
 import CameraCapture from '@/components/CameraCapture';
 import ClothingCarousel, { ClothingItem } from '@/components/ClothingCarousel';
 import { clsx, type ClassValue } from 'clsx';

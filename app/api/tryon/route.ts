@@ -72,13 +72,16 @@ export async function POST(req: NextRequest) {
     const clothingImageBase64 = arrayBufferToBase64(clothingImageBuffer);
     const clothingImageMimeType = clothingImageFile.type || "image/png";
 
+    const generationConfig = {
+      response_modalities: ["text", "image"],
+    } as unknown as NonNullable<
+      Parameters<typeof genAI.getGenerativeModel>[0]["generationConfig"]
+    >;
+
     // --- Generate the content using @google/generative-ai ---
     const model = genAI.getGenerativeModel({
       model: MODEL_ID,
-      generationConfig: {
-        // @ts-ignore
-        response_modalities: ["text", "image"],
-      }
+      generationConfig,
     });
 
     const result = await model.generateContent([
@@ -126,11 +129,15 @@ export async function POST(req: NextRequest) {
       description: textResponse || "Virtual try-on completed.",
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error processing virtual try-on request:", error);
+    const errorStatus =
+      typeof error === "object" && error !== null && "status" in error
+        ? (error as { status?: number }).status
+        : undefined;
 
     // Check for 429 Resource Exhausted (which includes the limit: 0 case)
-    if (error.message?.includes("429") || error.status === 429) {
+    if ((error instanceof Error && error.message.includes("429")) || errorStatus === 429) {
       return NextResponse.json(
         {
           error: "Quota Exceeded or Regional Restriction",
