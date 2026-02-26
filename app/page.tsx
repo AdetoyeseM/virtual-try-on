@@ -351,7 +351,7 @@ export default function TryOnPage() {
 
       <footer className="py-12 border-t border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-zinc-500 text-sm">© 2026 Aura Virtual Try-On. Enhanced by Aura AI.</p>
+          <p className="text-zinc-500 text-sm">© 2026 Aura Virtual Try-On.</p>
           <div className="flex gap-8 text-zinc-500 text-sm">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
             <a href="#" className="hover:text-white transition-colors">Terms</a>

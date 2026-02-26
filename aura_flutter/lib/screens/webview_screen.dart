@@ -3,6 +3,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 // Import platform specific implementations
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class WebViewScreen extends StatefulWidget {
   final String url;
@@ -19,6 +20,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   @override
   void initState() {
     super.initState();
+    _requestPermissions();
 
     // Initialize controller based on platform
     late final PlatformWebViewControllerCreationParams params;
@@ -65,6 +67,13 @@ class _WebViewScreenState extends State<WebViewScreen> {
           request.grant();
         });
     }
+  }
+
+  Future<void> _requestPermissions() async {
+    await [
+      Permission.camera,
+      Permission.microphone,
+    ].request();
   }
 
   @override

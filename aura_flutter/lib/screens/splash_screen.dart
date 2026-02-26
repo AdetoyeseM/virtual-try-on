@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => const WebViewScreen(
-          url: 'https://google.com',
+          url: 'https://virtual-try-on-z58q.vercel.app/',
         ),
       ),
     );
